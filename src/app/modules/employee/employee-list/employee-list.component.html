@@ -1,0 +1,39 @@
+<section class="">
+  <div class="container employee-wrapper">
+    <div class="row title-container">
+      <div class="col-9">
+        <h4>
+          Employees
+          <span class="badge badge-primary">{{employeeData?.length || 0}}</span>
+        </h4>
+      </div>
+      <div class="col-3">
+        <input type="text" placeholder="search" [(ngModel)]="search" class="form-control">
+
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 employee-list-container">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let emp of employeeData | filter:search" [routerLink]="[adminRoute.employee_task,emp?.id]">
+            <th scope="row">{{emp?.id}}</th>
+            <td>{{emp?.username}}</td>
+            <td>{{emp?.phone}}</td>
+            <td>{{emp?.email}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,112 @@
+@import "default";
+
+.login-body {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+
+  .login-wrapper {
+    margin: auto;
+    background-color: $white;
+    border-radius: 10px;
+    width: 500px;
+    height: auto;
+    text-align: center;
+    padding: 55px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    h1 {
+      color: #382A4B;
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    label {
+      background-color: #fff;
+      color: #382A4B;
+      font-size: 11px;
+      font-weight: 400;
+      margin-bottom: 0;
+      margin-left: 10px;
+      padding: 0 5px;
+      opacity: 0;
+      position: absolute;
+      top: -5PX;
+      left: 0;
+    }
+
+    .form-control {
+      height: 45px;
+      border-radius: 5px;
+      border: 1px solid #CCCCCC;
+      background-color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      color: #777777;
+      padding-left: 25px;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+
+      &:focus {
+        border: 1px solid #000000;
+        color: #382A4B;
+
+        + label {
+          opacity: 1;
+        }
+      }
+    }
+
+    .btn-primary {
+      width: 100%;
+      background-color: $btn_primary_color;
+      border: none;
+      height: 50px;
+      font-size: 20px;
+      font-weight: 500;
+      color: $white;
+    }
+
+    .forgot {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: flex-end;
+      margin-bottom: 50px;
+    }
+
+    .btn-forgot {
+      color: #7F7F7F;
+      font-weight: 14px;
+      font-size: 14px;
+    }
+
+    .signup {
+      color: #7F7F7F;
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 25px;
+      display: inline-block;
+
+      span {
+        color: #382A4B;
+      }
+    }
+
+  }
+
+
+}

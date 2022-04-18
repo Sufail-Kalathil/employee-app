@@ -1,0 +1,46 @@
+
+.employee-wrapper {
+
+  .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .add-task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .back-btn {
+      background-color: #007BFF;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    a {
+      color: white;
+    }
+  }
+
+  .employee-list-container {
+    margin: auto;
+    background-color: #E8EDF0;
+    border-radius: 10px;
+    height: auto;
+    padding: 20px;
+
+    table {
+      tbody {
+        tr {
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+}

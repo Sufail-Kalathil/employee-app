@@ -1,0 +1,80 @@
+<section class="">
+  <div class="container employee-wrapper">
+    <div class="title-wrapper">
+      <h4>
+        Employees Tasks
+        <span class="badge badge-primary">{{employeeTasks?.length || 0}}</span>
+
+      </h4>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Filter</label>
+        <select class="form-control" (change)="onChange()" id="exampleFormControlSelect1" [(ngModel)]=" filter">
+          <option selected value="ALL">--All--</option>
+          <option value=true>Completed</option>
+          <option value=false>Not Completed</option>
+        </select>
+      </div>
+    </div>
+    <div class="add-task-container">
+      <div class="back-btn">
+        <a routerLink="{{adminRoute.employee_list}}">
+          <i class="fa fa-arrow-left"></i>
+        </a>
+      </div>
+
+      <button (click)="openModal(taskModal)" type="button" class="btn btn-outline-dark">Add new task</button>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 employee-list-container">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let task of employeeTasksFiltered;let i = index" (click)="onEdit(taskModal,task)">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{task?.title}}</td>
+            <td>
+              <ng-container *ngIf="task?.completed">
+                <span class="badge badge-success">Completed</span>
+              </ng-container>
+
+              <ng-container *ngIf="!task?.completed">
+                <span class="badge badge-dark">Not Completed</span>
+              </ng-container>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<ng-template #taskModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{editMode ? 'View task' : 'Add task'}}</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="message-text" class="col-form-label">Description</label>
+        <textarea class="form-control" [(ngModel)]="taskDescription" name="taskDescription"
+                  id="message-text"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef?.hide()">Close</button>
+    <button *ngIf="!editMode" type="button" class="btn btn-primary" (click)="onAdd()">Save</button>
+  </div>
+</ng-template>
